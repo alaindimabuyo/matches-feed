@@ -281,7 +281,7 @@ const CircularProgressSVG = styled.svg`
   transform: rotate(-90deg);
 `;
 
-const CircularProgressCircle = styled.circle<{ code: number, percentage: number | string}>`
+const CircularProgressCircle = styled.circle<{ code: number, percentage: any}>`
   fill: none;
   stroke:  ${(props) => {
     switch (props.code) {
