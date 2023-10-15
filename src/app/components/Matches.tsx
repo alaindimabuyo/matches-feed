@@ -1,7 +1,7 @@
 "use client"
 import { useState, useEffect } from 'react';
 import React from "react";
-import Match from '@/app/constants/matchTypes'
+import {MatchType} from '@/app/constants/matchTypes'
 import styled from 'styled-components';
 import moment from 'moment';
 
@@ -9,7 +9,7 @@ const PAGE_SIZE = 9;
 
 const Matches = () => {
 
-  const [matches, setMatches] = useState<Match[]>([]);
+  const [matches, setMatches] = useState<MatchType[]>([]);
   const [selectedFilter, setSelectedFilter] = useState('ALL');
   const [currentPage, setCurrentPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState('');
@@ -47,7 +47,7 @@ const Matches = () => {
   const endIndex = currentPage * PAGE_SIZE;
 
   const paginatedMatches = filteredMatchesBySearch.slice(startIndex, endIndex);
-  console.log(filteredMatches)
+
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
   };

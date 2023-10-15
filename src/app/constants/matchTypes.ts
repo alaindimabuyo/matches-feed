@@ -36,3 +36,4 @@ interface Team {
     liveStatus: string;
   }
   
+  export type MatchType = Match;
