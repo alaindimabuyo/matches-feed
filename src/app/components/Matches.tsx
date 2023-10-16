@@ -110,22 +110,22 @@ const Matches = () => {
         <MatchContainer>
          {paginatedMatches.map((match) => (
             <MatchDetails key={match.id} data-testid="match-item">
-            <Country>{match.country}</Country>
-            <Competition>{match.competition}</Competition>
-            <Status code={match.status.code}>{match.status.code === 0 ? moment(match.date, 'DD.MM.YYYY').format('MMMM Do') + ' ' + match.time : transformStatus(match.status.code) }</Status>
-            <Score>{match.homeScore.current || 0} - {match.awayScore.current || 0}</Score>
-            <StatusDetails>
-              <TeamName>{match.homeTeam.name}</TeamName>
-              <CircularProgressContainer>
-                <CircularProgressSVG>
-                  <CircularProgressCircle cx="30" cy="30" r="20" percentage={match.liveStatus} code={match.status.code}/>
-                </CircularProgressSVG>
-                <CircularProgressText>{(match.status.code === 100 || match.status.code === 7 || match.status.code === 31 || match.status.code === 6) && match.liveStatus}</CircularProgressText>
-              </CircularProgressContainer>
-        
-              <TeamName style={{ textAlign: 'end' }}>{match.awayTeam.name}</TeamName>
-            </StatusDetails>
-          </MatchDetails>
+              <Country>{match.country}</Country>
+              <Competition>{match.competition}</Competition>
+              <Status code={match.status.code}>{match.status.code === 0 ? moment(match.date, 'DD.MM.YYYY').format('MMMM Do') + ' ' + match.time : transformStatus(match.status.code) }</Status>
+              <Score>{match.homeScore.current || 0} - {match.awayScore.current || 0}</Score>
+              <StatusDetails>
+                <TeamName>{match.homeTeam.name}</TeamName>
+                <CircularProgressContainer>
+                  <CircularProgressSVG>
+                    <CircularProgressCircle cx="30" cy="30" r="20" percentage={match.liveStatus} code={match.status.code}/>
+                  </CircularProgressSVG>
+                  <CircularProgressText>{(match.status.code === 100 || match.status.code === 7 || match.status.code === 31 || match.status.code === 6) && match.liveStatus}</CircularProgressText>
+                </CircularProgressContainer>
+          
+                <TeamName style={{ textAlign: 'end' }}>{match.awayTeam.name}</TeamName>
+              </StatusDetails>
+            </MatchDetails>
           ))}
         </MatchContainer>
         <Pagination>
@@ -160,9 +160,10 @@ const MatchDetails = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 1rem;
+  margin: .2rem;
   padding: 1rem;
   background-color: #2b2b2b;
+  border-radius: .5rem;
 `
 const MatchContainer = styled.div`
   display: grid;
@@ -224,7 +225,7 @@ const Score = styled.p`
 
 const TeamName = styled.p`
   width: 30%;
-  font-size: 20px;
+  font-size: 18px;
 `;
 
 const FilterButtons = styled.div`
@@ -345,6 +346,7 @@ const SearchBar = styled.input`
   outline: none;
   font-size: 12px;
   width: 90vw;
+  margin-bottom: 1rem;
 `;
 
 const MainContainer = styled.div`
@@ -352,5 +354,5 @@ const MainContainer = styled.div`
   flex-direction:column;
   align-items: center;
   justify-content: center;
-  margin: 0 1rem;
+  margin: 0 .5rem;
 `
